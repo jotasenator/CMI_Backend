@@ -5,6 +5,8 @@ const { response } = require('express')
 
 const bcrypt = require('bcryptjs')
 
+
+
 const getAdmin = async (req, res = response) => {
 
     const admin = await adminUser.find()
