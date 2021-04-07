@@ -3,6 +3,8 @@ const adminUser = require('../models/adminUser')
 
 const { response } = require('express')
 
+const bcrypt = require('bcryptjs')
+
 const getAdmin = async (req, res = response) => {
 
     const admin = await adminUser.find()
@@ -23,6 +25,12 @@ const crearAdmin = async (req, res = response) => {
     try {
 
         admins.user = req.uid
+
+        //encriptar contraseña
+        const salt = bcrypt.genSaltSync()
+        admins.password = bcrypt.hashSync(admins.password, salt)
+
+
 
         const adminGuardado = await admins.save()
 
