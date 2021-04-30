@@ -6,9 +6,7 @@ const router = express.Router()
 const { check } = require('express-validator')
 
 
-const { getAdmin, crearAdmin } = require('../controllers/adminUser')
-
-
+const { getAdmin, crearAdmin, eliminarAdmin } = require('../controllers/adminUser')
 
 
 // obtener eventos
@@ -25,6 +23,9 @@ router.post('/',
 
     ],
     crearAdmin)
+
+//borrar evento
+router.delete('/:id', eliminarAdmin)
 
 
 module.exports = router

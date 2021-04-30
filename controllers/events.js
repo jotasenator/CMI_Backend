@@ -8,7 +8,6 @@ const getEvento = async (req, res = response) => {
 
     const eventos = await Evento.find()
 
-
     return res.json({
         ok: true,
         eventos

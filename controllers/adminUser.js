@@ -50,12 +50,47 @@ const crearAdmin = async (req, res = response) => {
 
     }
 
+}
+
+const eliminarAdmin = async (req, res = response) => {
+    const adminId = req.params.id
+
+    try {
+
+        const admin = await adminUser.findById(adminId)
+
+        if (!admin) {
+            return res.status(404).json({
+                ok: false,
+                msg: 'Evento no existe por ese id'
+            })
+        }
+
+        await adminUser.findByIdAndDelete(adminId)
+
+
+        res.json({
+            ok: true,
+            msg: 'admin borrado',
+            admin
+
+        })
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        })
+
+    }
 
 }
 
+
+
 module.exports = {
     getAdmin,
-    crearAdmin
-
-
+    crearAdmin,
+    eliminarAdmin,
 }
