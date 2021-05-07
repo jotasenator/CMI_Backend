@@ -15,6 +15,7 @@ router.get('/', getEvento)
 // crear nuevo evento
 router.post('/',
     [
+        check('foto', 'el titulo no es obligatorio'),
         check('departamento', 'el titulo es obligatorio').notEmpty(),
         check('responsable', 'el titulo es obligatorio').notEmpty(),
         check('noSello', 'el titulo es obligatorio').notEmpty(),

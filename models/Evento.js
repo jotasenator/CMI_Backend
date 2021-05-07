@@ -3,6 +3,14 @@ const { Schema, model } = require('mongoose')
 
 const EventoSchema = Schema({
 
+    instalacion: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String,
+        required: false
+    },
     departamento: {
         type: String,
         required: true
@@ -238,6 +246,14 @@ const EventoSchema = Schema({
     upsNI: {
         type: String,
         required: true
+    },
+    creadoPor: {
+        type: String,
+        required: false
+    },
+    fecha: {
+        type: String,
+        required: false
     },
 
 
