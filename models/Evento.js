@@ -3,6 +3,7 @@ const { Schema, model } = require('mongoose')
 
 const EventoSchema = Schema({
 
+
     instalacion: {
         type: String,
         required: true
